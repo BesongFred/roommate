@@ -1,0 +1,99 @@
+.homepage {
+  background-color: #FFFDD0;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background-color: #003151;
+  color: white;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(45deg, #003151, #0E4C92);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero .cta-btn {
+  background-color: white;
+  color: #003151;
+  padding: 12px 30px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.hero .cta-btn:hover {
+  background-color: #FFD2CA;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 20px;
+  text-align: center;
+  gap: 20px;
+}
+
+.feature-box {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-box svg {
+  margin-bottom: 10px;
+  display: block;
+  align-self: center;
+}
+
+.how-it-works {
+  background-color: #FFF5F6;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.how-it-works ol {
+  text-align: left;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.footer {
+  background-color: #003151;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+

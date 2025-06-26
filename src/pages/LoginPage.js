@@ -1,127 +1,204 @@
-// src/LoginPage.js
-import React, { useState } from 'react';
+//AuthForm.jsx 
+import React, { useState } from 'react'; 
+import { FcGoogle } from 'react-icons/fc';
+import { getAuth, createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, GoogleAuthProvider,
+   signInWithPopup } from 'firebase/auth'; 
+import './LoginPage.css'; // for styling
+import firebaseApp from '../components/firebase/firebase'
+import { useNavigate } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
-export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [agree, setAgree] = useState(false);
+const auth = getAuth(firebaseApp);
 
-  const handleSubmit = (e) => {
+const AuthForm = () => { 
+//const [isSignUp, setIsSignUp] = useState(false); 
+ const [isRightPanelActive, setIsRightPanelActive] = useState(false);
+ //const [id, setId] =useState('')
+const [email, setEmail] = useState('');
+ const [password, setPassword] = useState('');
+ const navigate = useNavigate(); 
+
+ const handleGoogleSignIn = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    alert(`Welcome ${user.displayName}! 🎉`);
+    navigate('/complete-profile');
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+
+const handleSubmit = async (e, isSignUpMode) => {
     e.preventDefault();
-    if (!agree) {
-      alert('Please agree to the Terms and Conditions.');
-      return;
+    try {
+      if (isSignUpMode) {
+       const userCreate = await createUserWithEmailAndPassword(auth, email, password);
+        alert('Account created! 🎉');
+        // Get secure ID token
+       const idToken = await userCreate.user.getIdToken();
+        // Send user data to Go backend
+       const response = await fetch("http://localhost:8081/users/register", {
+         method:"POST",
+        headers: {
+           Authorization: `Bearer ${idToken}`,
+           
+           "Content-Type": "application/json",
+          },
+           body: JSON.stringify({
+            idToken,
+            email,// must match backend expectations
+             }),
+           });
+              const result = await response.json();
+               console.log("Server response:", result);
+              //return result;
+              navigate('/complete-profile');
+      } 
+      else {
+        await signInWithEmailAndPassword(auth, email, password);
+        alert('Welcome back! 👋');
+        navigate('/');
+      }
     }
-    alert(`Email: ${email}\nPassword: ${password}`);
+      catch (err) {
+      alert(err.message);
+    }
   };
 
-  return (
-    <div style={{
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      background: 'linear-gradient(to right, #667eea, #764ba2)',
-      fontFamily: 'Arial, sans-serif',
-    }}>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '3rem 2rem',
-          backgroundColor: 'white',
-          borderRadius: '16px',
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-          width: '100%',
-          maxWidth: '400px',
-        }}
-      >
-        <h2 style={{
-          textAlign: 'center',
-          marginBottom: '1.5rem',
-          color: '#333',
-          fontSize: '1.75rem',
-        }}>
-          Welcome Back 👋
-        </h2>
+return (
+  <div className='bigbox'>
+       {/* <h2>Sign in/up Form</h2> */}
+       <div className={`container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
+         {/* Sign Up */}
+         <div className="form-container sign-up-container">
+           <form onSubmit={(e) => handleSubmit(e, true)}>
+             <h1>Create Account</h1>
+             <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+             <button type="submit">Sign Up</button>
+           </form>
+         </div>
 
-        <label style={{ fontSize: '0.875rem', marginBottom: '0.25rem', color: '#555' }}>
-          Email
-        </label>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={{
-            padding: '0.75rem',
-            marginBottom: '1.25rem',
-            borderRadius: '8px',
-            border: '1px solid #ccc',
-            fontSize: '1rem',
-            outlineColor: '#667eea',
-          }}
-        />
+         {/* Sign In */}
+         <div className="form-container sign-in-container">
+           <form onSubmit={(e) => handleSubmit(e, false)}>
+             <h1>Sign in</h1>
+             <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+             <div className="social-signin">
+             <p className="or-text">or sign in with Google</p>
+             <button type="button" onClick={handleGoogleSignIn} className="google-icon-btn"><FcGoogle size={20} /></button>
+             </div>
+             
+             <Link to="/forgot-password" className="forgot-link">Forgot your password?</Link>
+             <button type="submit">Log In</button>
+           </form>
+         </div>
 
-        <label style={{ fontSize: '0.875rem', marginBottom: '0.25rem', color: '#555' }}>
-          Password
-        </label>
-        <input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={{
-            padding: '0.75rem',
-            marginBottom: '1.5rem',
-            borderRadius: '8px',
-            border: '1px solid #ccc',
-            fontSize: '1rem',
-            outlineColor: '#667eea',
-          }}
-        />
+         {/* Overlay */}
+         <div className="overlay-container">
+           <div className="overlay">
+             <div className="overlay-panel overlay-left">
+               <h1>Welcome Back!</h1>
+               <p>To keep connected with us please login with your personal info</p>
+              <button className="ghost" onClick={() => setIsRightPanelActive(false)}>Sign In</button>
+             </div>
+             <div className="overlay-panel overlay-right">
+               <h1>Hello, Friend!</h1>
+               <p>Enter your personal details and start your journey with us</p>
+               <button className="ghost" onClick={() => setIsRightPanelActive(true)}>Sign Up</button>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+); 
+};
 
-        <label style={{
-          display: 'flex',
-          alignItems: 'center',
-          fontSize: '0.875rem',
-          color: '#444',
-          marginBottom: '1rem',
-        }}>
-          <input
-            type="checkbox"
-            checked={agree}
-            onChange={(e) => setAgree(e.target.checked)}
-            style={{ marginRight: '0.5rem' }}
-          />
-          I agree to the <a href="/TermsAndConditions" style={{ color: '#667eea', textDecoration: 'underline', marginLeft: '0.25rem' }}>
-  Terms and Conditions
-</a>
+export default AuthForm;
 
-        </label>
 
-        <button
-          type="submit"
-          style={{
-            padding: '0.75rem',
-            borderRadius: '8px',
-            border: 'none',
-            backgroundColor: '#667eea',
-            color: 'white',
-            fontWeight: '600',
-            fontSize: '1rem',
-            cursor: 'pointer',
-            transition: 'background 0.3s ease',
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#5a67d8'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#667eea'}
-        >
-          Login
-        </button>
-      </form>
-    </div>
-  );
-}
+// import React, { useState } from 'react';
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   signInWithEmailAndPassword,
+// } from 'firebase/auth';
+// import firebaseApp from '../components/firebase/firebase';
+// import './LoginPage.css';
+// import { useNavigate } from 'react-router-dom';
+
+// const auth = getAuth(firebaseApp);
+
+// const SignInSignUp = () => {
+//   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (e, isSignUpMode) => {
+//     e.preventDefault();
+//     try {
+//       if (isSignUpMode) {
+//         await createUserWithEmailAndPassword(auth, email, password);
+//         alert('Account created! 🎉');
+//       } else {
+//         await signInWithEmailAndPassword(auth, email, password);
+//         alert('Welcome back! 👋');
+//       }
+//       navigate('/complete-profile');
+//     } catch (err) {
+//       alert(err.message);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h2>Sign in/up Form</h2>
+//       <div className={`container ${isRightPanelActive ? 'right-panel-active' : ''}`} id="container">
+//         {/* Sign Up */}
+//         <div className="form-container sign-up-container">
+//           <form onSubmit={(e) => handleSubmit(e, true)}>
+//             <h1>Create Account</h1>
+//             <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+//             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+//             <button type="submit">Sign Up</button>
+//           </form>
+//         </div>
+
+//         {/* Sign In */}
+//         <div className="form-container sign-in-container">
+//           <form onSubmit={(e) => handleSubmit(e, false)}>
+//             <h1>Sign in</h1>
+//             <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+//             <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+//             <button type="submit">Log In</button>
+//           </form>
+//         </div>
+
+//         {/* Overlay */}
+//         <div className="overlay-container">
+//           <div className="overlay">
+//             <div className="overlay-panel overlay-left">
+//               <h1>Welcome Back!</h1>
+//               <p>To keep connected with us please login with your personal info</p>
+//               <button className="ghost" onClick={() => setIsRightPanelActive(false)}>Sign In</button>
+//             </div>
+//             <div className="overlay-panel overlay-right">
+//               <h1>Hello, Friend!</h1>
+//               <p>Enter your personal details and start your journey with us</p>
+//               <button className="ghost" onClick={() => setIsRightPanelActive(true)}>Sign Up</button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SignInSignUp;
+
