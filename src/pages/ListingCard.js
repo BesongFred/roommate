@@ -1,28 +1,51 @@
-import React from 'react';
-import { ShieldCheck } from 'lucide-react';
 
-const ListingCard = ({ listing }) => {
+
+
+// src/components/Listing.jsx
+import React from 'react';
+import './ListingCard.css';
+
+const roommateListings = [
+  {
+    id: 1,
+    name: 'Sandra N.',
+    location: 'Buea - Molyko',
+    bio: 'Loves quiet evenings, plants, and baking. Looking for someone tidy.',
+    image: '/images/sandra.jpg' // use placeholder images from /public or a URL
+  },
+  {
+    id: 2,
+    name: 'Eric T.',
+    location: 'Yaoundé - Bastos',
+    bio: 'Remote worker. Dog lover. Easy-going roommate.',
+    image: '/images/eric.jpg'
+  },
+  {
+    id: 3,
+    name: 'Linda A.',
+    location: 'Douala - Bonapriso',
+    bio: 'Enjoys shared meals and Netflix nights.',
+    image: '/images/linda.jpg'
+  }
+];
+
+const Listing = () => {
   return (
-    <div className="bg-white shadow rounded-md overflow-hidden">
-      <div className="relative">
-        <img
-          src={listing.imageUrl}
-          alt={listing.title}
-          className="w-full h-48 object-cover"
-        />
-        {listing.verified && (
-          <div className="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded flex items-center gap-1 shadow-md">
-            <ShieldCheck size={14} /> Verified
+    <section className="listing-section">
+      <h2>Available Roommate Listings</h2>
+      <div className="listing-grid">
+        {roommateListings.map(({ id, name, location, bio, image }) => (
+          <div className="listing-card" key={id}>
+            <img src={image} alt={name} />
+            <h3>{name}</h3>
+            <p className="location">{location}</p>
+            <p className="bio">{bio}</p>
+            <button className="view-btn">View Profile</button>
           </div>
-        )}
+        ))}
       </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800">{listing.title}</h3>
-        <p className="text-gray-600">{listing.location}</p>
-        <p className="text-indigo-600 font-bold mt-2">${listing.price}/month</p>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default ListingCard;
+export default Listing;
