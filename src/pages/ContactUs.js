@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar'; // ✅ Reusable Navbar
 
 export default function ContactUs() {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -21,23 +20,8 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
-      
-      {/* Navbar */}
-      <nav className="flex items-center justify-end px-6 py-4 bg-white shadow-md">
-        <div className="space-x-4">
-          <button onClick={() => navigate('/')} className="hover:text-blue-600">Home</button>
-          <button onClick={() => navigate('/ListingsPage')} className="hover:text-blue-600">Listings</button>
-          <button onClick={() => navigate('/AboutPage')} className="hover:text-blue-600">About</button>
-          <button onClick={() => navigate('/ContactUs')} className="text-blue-600 font-semibold underline">Contact</button>
-          <button
-            onClick={() => navigate('/login')}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-          >
-            Login
-          </button>
-        </div>
-      </nav>
 
+      <Navbar />
       {/* Contact Info Section */}
       <section className="max-w-3xl mx-auto py-12 px-6">
         <h2 className="text-3xl font-bold text-blue-700 mb-4 text-center">Contact Roommate Finder</h2>

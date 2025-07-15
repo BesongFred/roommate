@@ -14,6 +14,10 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import ContactUs from './pages/ContactUs';
 import CompleteProfile from './pages/CompleteProfile';
 import ForgotPassword from './pages/ForgotPassword';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import Messages from './pages/messages';
+
 // Example listings data (replace with your real data source)
 const listings = [
   { id: '1', title: 'ListingsPage 1', description: 'Description of listing 1' },
@@ -25,6 +29,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/complete-profile" element={<CompleteProfile />} />
         <Route
@@ -32,7 +37,8 @@ function App() {
           element={<ListingDetails listings={listings} />}
         />
          <Route path="/signup" element={<SignupPage />} />
-         
+         <Route path="/Messages" element={<Messages />} />
+         <Route path="/Dashboard" element={<Dashboard />} />
          <Route path="/AboutPage" element={<AboutPage />} />
          <Route path="/about-details" element={<AboutDetails />} />
          <Route path="/ListingsPage" element={<ListingsPage />} />

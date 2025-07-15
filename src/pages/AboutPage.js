@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Users, MessageCircle, Home } from 'lucide-react';
-
+import Navbar from '../components/Navbar'; // ✅ Reusable Navbar
 const teamMembers = [
   { name: 'Alice Johnson', role: 'Co-Founder & CEO', img: '/images/team1.jpg' },
   { name: 'Mark Chen', role: 'CTO', img: '/images/team2.jpg' },
@@ -12,23 +12,7 @@ const teamMembers = [
 const AboutPage = () => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
-        <h1 className="text-xl font-bold text-blue-600">Roommate Finder</h1>
-        <div className="space-x-4">
-          <Link to="/" className="hover:text-blue-600">Home</Link>
-          <Link to="/listings" className="hover:text-blue-600">Listings</Link>
-          <Link to="/AboutPage" className="hover:text-blue-600">About</Link>
-          
-          <Link
-            to="/login"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-          >
-            Login
-          </Link>
-        </div>
-      </nav>
-
+    <Navbar />
       {/* Hero Section */}
       <section
         className="bg-cover bg-center bg-no-repeat py-24 text-black"
@@ -127,7 +111,7 @@ const AboutPage = () => {
         <div className="max-w-3xl mx-auto px-6 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Ready to find your perfect roommate?</h2>
           <p className="text-lg mb-6">Join thousands who’ve already matched successfully on Roommate Finder.</p>
-          <Link to="/signup">
+          <Link to="/login">
             <button className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-100 transition">
               Join Now
             </button>

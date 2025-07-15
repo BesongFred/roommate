@@ -1,0 +1,144 @@
+/* Global Container */
+.my-profile-container {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  padding-bottom: 40px;
+}
+
+/* NavBar */
+
+
+/* Topbar */
+.profile-topbar {
+  padding: 30px 20px 10px;
+  text-align: center;
+  background-color: #e3f0ff;
+}
+
+.profile-topbar h2 {
+  font-size: 28px;
+  color: #004aad;
+}
+
+/* Profile Card */
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-bio h2 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.profile-bio h2 span {
+  font-size: 14px;
+  color: #777;
+  margin-left: 8px;
+}
+
+.profile-bio p {
+  margin: 4px 0 10px;
+  font-size: 15px;
+  color: #444;
+}
+
+.edit-btn {
+  padding: 8px 14px;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn:hover {
+  background-color: #00347d;
+}
+
+/* Profile Sections */
+.profile-sections {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.profile-section {
+  background: rgb(218, 110, 210);
+  padding: 18px 24px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.profile-section h3 {
+  margin-bottom: 12px;
+  color: #004aad;
+}
+
+.profile-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.profile-section li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.profile-section li strong {
+  color: #222;
+}
+
+/* Verified List */
+.verified-list li {
+  color: green;
+  font-weight: 500;
+}
+
+/* Footer Controls */
+.profile-footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #004aad;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.footer-btn:hover {
+  background-color: #00347d;
+}
+
+.footer-btn.danger {
+  background-color: #d9534f;
+}
+
+.footer-btn.danger:hover {
+  background-color: #c9302c;
+}

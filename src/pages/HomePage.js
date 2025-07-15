@@ -1,25 +1,19 @@
-
 // HomePage.jsx
 import React from 'react';
 import { FaUserFriends, FaShieldAlt, FaComments } from 'react-icons/fa';
-import './HomePage.css';
-//import roommateListings from './ListingsPage'
 import { Link } from 'react-router-dom';
-//import ListingsPage from './ListingsPage';
+
+import './HomePage.css';
 import ListingCard from './ListingCard';
+import Navbar from '../components/Navbar'; // ✅ Reusable Navbar
 
 const HomePage = () => {
   return (
     <div className="homepage">
-      <nav className="navbar">
-        <div className="logo">Roommate Finder</div>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how">How It Works</a></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
-      </nav>
+      {/* ✅ Navbar at top */}
+      <Navbar />
 
+      {/* ✅ Hero Section */}
       <header className="hero">
         <h1>Find Your Perfect Roommate</h1>
         <p>Browse verified listings and connect with people who match your lifestyle.</p>
@@ -27,9 +21,10 @@ const HomePage = () => {
         <Link to="/login" className="cta-btn">Get Started</Link>
       </header>
 
+      {/* ✅ Features Section */}
       <section id="features" className="features">
         <div className="feature-box">
-            <FaUserFriends size={40} color="#FF4B2B" />
+          <FaUserFriends size={40} color="#FF4B2B" />
           <h3>Personality Matching</h3>
           <p>We match you based on lifestyle and living preferences, not just location.</p>
         </div>
@@ -44,9 +39,11 @@ const HomePage = () => {
           <p>Built-in messaging makes it easy to get to know potential roommates.</p>
         </div>
       </section>
-    
-    <ListingCard />
 
+      {/* ✅ Featured Listings (Preview) */}
+      <ListingCard />
+
+      {/* ✅ How It Works Section */}
       <section id="how" className="how-it-works">
         <h2>How It Works</h2>
         <ol>
@@ -57,6 +54,7 @@ const HomePage = () => {
         </ol>
       </section>
 
+      {/* ✅ Footer */}
       <footer className="footer">
         &copy; {new Date().getFullYear()} Roommate Finder. All rights reserved.
       </footer>
@@ -65,4 +63,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
