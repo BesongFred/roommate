@@ -1,59 +1,19 @@
-/* General */
 .homepage {
-  background-color: #FFFDD0;
+  background-color: #fffdd0;
   color: #333;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background-color: #003151;
-  color: white;
-}
-
-.navbar .logo {
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  transition: opacity 0.3s;
-}
-
-.navbar a:hover {
-  opacity: 0.8;
-}
-
-/* Hero Section */
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(45deg, #003151, #0E4C92);
+  background: linear-gradient(45deg, #003151, #0e4c92);
   color: white;
 }
 
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin: 10px 0;
 }
 
 .hero .cta-btn {
@@ -65,53 +25,18 @@
   border-radius: 30px;
   text-decoration: none;
   transition: background-color 0.3s;
-  display: inline-block;
-  margin-top: 20px;
 }
 
 .hero .cta-btn:hover {
-  background-color: #FFD2CA;
+  background-color: #ffd2ca;
 }
 
-/* Hero Image & Search Button */
-.hero-image-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-}
-
-.hero-rounded-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  margin-bottom: 12px;
-}
-
-.hero-search-btn {
-  padding: 10px 20px;
-  background-color: #FF4B2B;
-  color: white;
-  font-weight: bold;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.hero-search-btn:hover {
-  background-color: #e53e1f;
-}
-
-/* Features Section */
 .features {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   margin: 60px 20px;
-  gap: 20px;
   text-align: center;
+  gap: 20px;
 }
 
 .feature-box {
@@ -119,55 +44,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
 }
 
-.feature-img {
-  width: 100%;
-  max-width: 120px;
-  margin: 0 auto 12px;
-  border-radius: 1rem;
-  object-fit: cover;
+.feature-box svg {
+  margin-bottom: 10px;
   display: block;
+  align-self: center;
 }
 
-.feature-box h3 {
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.feature-box p {
-  font-size: 16px;
-  color: #444;
-}
-
-/* How It Works Section */
 .how-it-works {
-  background-color: #FFF5F6;
+  background-color: #fff5f6;
   padding: 60px 20px;
   text-align: center;
 }
 
-.how-it-works h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
 .how-it-works ol {
   text-align: left;
-  display: inline-block;
+  display: flex;
+  justify-content: space-around;
   margin-top: 20px;
-  font-size: 16px;
-  padding-left: 20px;
-  line-height: 1.8;
-}
-
-/* Footer */
-.footer {
-  background-color: #003151;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  font-size: 14px;
 }

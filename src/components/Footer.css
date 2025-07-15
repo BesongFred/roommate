@@ -1,0 +1,20 @@
+.footer-container {
+  /* background-color: #fffdd0; */
+  background-color: #003151;
+  /* color: #333; */
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  /* display: flex;
+  justify-content: center; */
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* .footer {
+  
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+} */

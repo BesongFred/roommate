@@ -17,6 +17,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Messages from './pages/messages';
+import SearchPage from './pages/SearchPage';
 
 // Example listings data (replace with your real data source)
 const listings = [
@@ -48,7 +49,7 @@ function App() {
          <Route path="/ContactUs" element={<ContactUs />} />
          <Route path="/forgot-password" element={<ForgotPassword />} />
          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-
+         <Route path="searchpage" element={<SearchPage />} />
         {/* Add more routes like /signup, /listings etc. here */}
       </Routes>
     </Router>

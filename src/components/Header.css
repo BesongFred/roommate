@@ -1,0 +1,29 @@
+.header-container {
+  background-color: #003151;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* So it stays on top of everything */
+  padding: 30px 30px 30px 30px;
+  /* padding-bottom: 30px;   */
+  /* gap: 40px;
+  height: 90px; */
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  
+}
+
+.logo {
+  font-size: x-large;
+  font-weight: bold;
+}
