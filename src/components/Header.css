@@ -4,26 +4,40 @@
   font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /* So it stays on top of everything */
-  padding: 30px 30px 30px 30px;
-  /* padding-bottom: 30px;   */
-  /* gap: 40px;
-  height: 90px; */
+  z-index: 9999;
+
+  padding: 12px 24px; /* Reduced padding */
+  height: 60px;        /* Optional fixed height */
+}
+
+.logo {
+  font-size: 1.2rem;     /* Smaller logo text */
+  font-weight: bold;
 }
 
 .navbar ul {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  
+  align-items: center;
+  gap: 16px;             /* Slight gap between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  font-size: x-large;
-  font-weight: bold;
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #ccc;
 }

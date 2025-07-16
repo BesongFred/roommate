@@ -1,18 +1,16 @@
 // HomePage.jsx
 import React from "react";
 import { FaUserFriends, FaShieldAlt, FaComments } from "react-icons/fa";
-import "./HomePage.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-//import roommateListings from './ListingsPage'
 import { Link } from "react-router-dom";
-//import ListingsPage from './ListingsPage';
-// import ListingCard from "./ListingCard";
+import "./HomePage.css";
+// import ListingCard from './ListingCard';
+import Navbar from "../components/Navbar";
 
 const HomePage = () => {
   return (
     <div className='homepage'>
-      <Header />
+      <Navbar />
+      {/* ✅ Hero Section */}
       <header className='hero'>
         <h1>Find Your Perfect Roommate</h1>
         <p>
@@ -25,6 +23,7 @@ const HomePage = () => {
         </Link>
       </header>
 
+      {/* ✅ Features Section */}
       <section id='features' className='features'>
         <div className='feature-box'>
           <FaUserFriends size={40} color='#FF4B2B' />
@@ -54,7 +53,7 @@ const HomePage = () => {
         id='how'
         className='how-it-works w-full overflow-hidden whitespace-nowrap'
       >
-        <h2 className='text-xl font-bold text-[#003151]'>How It Works</h2> 
+        <h2 className='text-xl font-bold text-[#003151]'>How It Works</h2>
         <ol className='animate-marquee flex text-xl font-bold text-[#003151]'>
           <li className='mx-4 shrink-0 '>Create a profile</li>
           <li className='mx-4 shrink-0 '>Browse matches</li>
@@ -63,7 +62,7 @@ const HomePage = () => {
         </ol>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

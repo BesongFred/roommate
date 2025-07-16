@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import Navbar from '../components/Navbar';
+
 // Images
 import logoImg from '../assets/fred01.JPG';
 import room1Img from '../assets/room1.jpg';
@@ -37,6 +39,16 @@ const Dashboard = () => {
   const [townSearch, setTownSearch] = useState('');
   const [filteredListings, setFilteredListings] = useState(mockListings);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const filtered = mockListings.filter((listing) =>
+      (idSearch === '' || String(listing.id) === idSearch) &&
+      (locationSearch === '' || listing.location.toLowerCase().includes(locationSearch.toLowerCase())) &&
+      (titleSearch === '' || listing.title.toLowerCase().includes(titleSearch.toLowerCase())) &&
+      (townSearch === '' || listing.town.toLowerCase().includes(townSearch.toLowerCase()))
+    );
+    setFilteredListings(filtered);
+  };
 
   const handleReset = () => {
     setIdSearch('');
@@ -48,10 +60,15 @@ const Dashboard = () => {
 
   return (
     <main className="dashboard">
-   
+      <Navbar />
 
-      <section className="listing-preview">
-        <h2 id="featured-listings">Featured Listings</h2>
+      <section className="search-section">
+        <form onSubmit={handleSearch} className="search-form">
+      {(e) => setIdSearch(e.target.value)}
+     
+       
+        </form>
+     
         <div className="listing-grid">
           {filteredListings.length > 0 ? (
             filteredListings.map((listing) => (
@@ -74,7 +91,6 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Extra Navigation Options */}
       <section className="more-options">
         <h2 className="more-options-title">What Are You Looking For?</h2>
         <div className="more-options-grid">
@@ -88,7 +104,7 @@ const Dashboard = () => {
           </Link>
           <Link to="/verified-roommates" className="option-card">
             <h3>👯‍♂️ Meet Verified Roommates</h3>
-            <p>Chat with people who have verified their profiles</p>
+            <p>Chat with people who have verified their profiles.</p>
           </Link>
         </div>
       </section>
