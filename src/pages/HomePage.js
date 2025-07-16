@@ -4,12 +4,14 @@ import { FaUserFriends, FaShieldAlt, FaComments } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 import ListingCard from './ListingCard';
-import Navbar from '../components/Navbar';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
     <div className="homepage">
-    <Navbar />
+      <Header />
+      {/* <Footer /> */}
       {/* ✅ Hero Section */}
       <header className="hero">
         <h1>Find Your Perfect Roommate</h1>
@@ -50,11 +52,9 @@ const HomePage = () => {
           <li>Move in with confidence</li>
         </ol>
       </section>
-
-      {/* ✅ Footer */}
-      <footer className="footer">
-        &copy; {new Date().getFullYear()} Roommate Finder. All rights reserved.
-      </footer>
+      <Footer />
+      {/* ✅ Footer (bottom only) */}
+  
     </div>
   );
 };
