@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
-import ListingDetails from './pages/ListingDetails'; // Make sure this path is correct
-import SignupPage from './pages/SignupPage';
+import ListingDetails from './pages/ListingDetails'; 
 import ForgotPasswordPage from './pages/ForgotPassword';
 import AboutPage from './pages/AboutPage';
 import AboutDetails from './pages/AboutDetails'; 
@@ -17,6 +16,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Messages from './pages/messages';
+import Searchpage  from './pages/SearchPage';
 
 // Example listings data (replace with your real data source)
 const listings = [
@@ -36,7 +36,8 @@ function App() {
           path="/listing/:id"
           element={<ListingDetails listings={listings} />}
         />
-         <Route path="/signup" element={<SignupPage />} />
+      
+         <Route path="/searchpage" element={<Searchpage />} />
          <Route path="/Messages" element={<Messages />} />
          <Route path="/Dashboard" element={<Dashboard />} />
          <Route path="/AboutPage" element={<AboutPage />} />

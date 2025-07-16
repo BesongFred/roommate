@@ -2,17 +2,14 @@
 import React from 'react';
 import { FaUserFriends, FaShieldAlt, FaComments } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
 import './HomePage.css';
 import ListingCard from './ListingCard';
-import Navbar from '../components/Navbar'; // ✅ Reusable Navbar
+import Navbar from '../components/Navbar';
 
 const HomePage = () => {
   return (
     <div className="homepage">
-      {/* ✅ Navbar at top */}
-      <Navbar />
-
+    <Navbar />
       {/* ✅ Hero Section */}
       <header className="hero">
         <h1>Find Your Perfect Roommate</h1>
@@ -20,7 +17,7 @@ const HomePage = () => {
         <p>Smart. Safe. Simple.</p>
         <Link to="/login" className="cta-btn">Get Started</Link>
       </header>
-
+      
       {/* ✅ Features Section */}
       <section id="features" className="features">
         <div className="feature-box">

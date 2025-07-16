@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Navbar from '../components/Navbar'; // ✅ Navbar component
+import Navbar from '../components/Navbar';
 
 // Images
 import logoImg from '../assets/fred01.JPG';
@@ -43,9 +43,9 @@ const Dashboard = () => {
     e.preventDefault();
     const filtered = mockListings.filter((listing) =>
       (idSearch === '' || String(listing.id) === idSearch) &&
-      (locationSearch === '' || listing.location === locationSearch) &&
-      (titleSearch === '' || listing.title === titleSearch) &&
-      (townSearch === '' || listing.town === townSearch)
+      (locationSearch === '' || listing.location.toLowerCase().includes(locationSearch.toLowerCase())) &&
+      (titleSearch === '' || listing.title.toLowerCase().includes(titleSearch.toLowerCase())) &&
+      (townSearch === '' || listing.town.toLowerCase().includes(townSearch.toLowerCase()))
     );
     setFilteredListings(filtered);
   };
@@ -60,47 +60,15 @@ const Dashboard = () => {
 
   return (
     <main className="dashboard">
-      {/* ✅ Reusable Navbar */}
       <Navbar />
 
-      <header className="dashboard-header">
-        <form className="search-section" onSubmit={handleSearch}>
-          <div className="flex-box">
-            <select value={idSearch} onChange={(e) => setIdSearch(e.target.value)} className="search-input">
-              <option value="">All IDs</option>
-              {mockListings.map((listing) => (
-                <option key={listing.id} value={listing.id}>{listing.id}</option>
-              ))}
-            </select>
-
-            <select value={locationSearch} onChange={(e) => setLocationSearch(e.target.value)} className="search-input">
-              <option value="">All Locations</option>
-              {[...new Set(mockListings.map((l) => l.location))].map((loc) => (
-                <option key={loc} value={loc}>{loc}</option>
-              ))}
-            </select>
-
-            <select value={titleSearch} onChange={(e) => setTitleSearch(e.target.value)} className="search-input">
-              <option value="">All Titles</option>
-              {[...new Set(mockListings.map((l) => l.title))].map((title) => (
-                <option key={title} value={title}>{title}</option>
-              ))}
-            </select>
-
-            <select value={townSearch} onChange={(e) => setTownSearch(e.target.value)} className="search-input">
-              <option value="">All Towns</option>
-              {[...new Set(mockListings.map((l) => l.town))].map((town) => (
-                <option key={town} value={town}>{town}</option>
-              ))}
-            </select>
-
-            <button type="submit" className="search-btn">🔍</button>
-          </div>
+      <section className="search-section">
+        <form onSubmit={handleSearch} className="search-form">
+      {(e) => setIdSearch(e.target.value)}
+     
+       
         </form>
-      </header>
-
-      <section className="listing-preview">
-        <h2 id="featured-listings">Featured Listings</h2>
+     
         <div className="listing-grid">
           {filteredListings.length > 0 ? (
             filteredListings.map((listing) => (
@@ -123,7 +91,6 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Extra Navigation Options */}
       <section className="more-options">
         <h2 className="more-options-title">What Are You Looking For?</h2>
         <div className="more-options-grid">
@@ -137,7 +104,7 @@ const Dashboard = () => {
           </Link>
           <Link to="/verified-roommates" className="option-card">
             <h3>👯‍♂️ Meet Verified Roommates</h3>
-            <p>Chat with people who have verified their profiles</p>
+            <p>Chat with people who have verified their profiles.</p>
           </Link>
         </div>
       </section>
