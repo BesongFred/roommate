@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Users, MessageCircle, Home } from 'lucide-react';
-import Navbar from '../components/Navbar'; // ✅ Reusable Navbar
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 const teamMembers = [
   { name: 'Alice Johnson', role: 'Co-Founder & CEO', img: '/images/team1.jpg' },
   { name: 'Mark Chen', role: 'CTO', img: '/images/team2.jpg' },
@@ -12,7 +13,8 @@ const teamMembers = [
 const AboutPage = () => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
-    <Navbar />
+    <Header />
+   <Footer />
       {/* Hero Section */}
       <section
         className="bg-cover bg-center bg-no-repeat py-24 text-black"

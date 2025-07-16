@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer"; // ✅ Footer kept only at bottom
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./SearchPage.css";
 
 // Images
@@ -58,7 +58,7 @@ function SearchPage() {
 
   return (
     <div className="search-container">
-      <Navbar />
+      <Header />
 
       <main className="search-content">
         <h1 className="title">Your space, your rules — find who fits</h1>

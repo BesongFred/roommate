@@ -1,11 +1,10 @@
-/* .footer-container {
+ 
+.footer-container {
   background-color: #003151;
-  color: white;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  padding: 4px 8px; 
-  font-size: 0.75rem;      /* Smaller text */
-  /* line-height: 1.2;   */
-  /* letter-spacing: 0.02em; 
-  user-select: none;      
-} */ 
+
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

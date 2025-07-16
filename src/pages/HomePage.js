@@ -1,15 +1,17 @@
 // HomePage.jsx
-import React from "react";
-import { FaUserFriends, FaShieldAlt, FaComments } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import "./HomePage.css";
-// import ListingCard from './ListingCard';
-import Navbar from "../components/Navbar";
+import React from 'react';
+import { FaUserFriends, FaShieldAlt, FaComments } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import './HomePage.css';
+import ListingCard from './ListingCard';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
-    <div className='homepage'>
-      <Navbar />
+    <div className="homepage">
+      <Header />
+      {/* <Footer /> */}
       {/* ✅ Hero Section */}
       <header className='hero'>
         <h1>Find Your Perfect Roommate</h1>
@@ -61,8 +63,9 @@ const HomePage = () => {
           <li className='mx-4 shrink-0 '>Move in with confidence</li>
         </ol>
       </section>
-
-      {/* <Footer /> */}
+      <Footer />
+      {/* ✅ Footer (bottom only) */}
+  
     </div>
   );
 };
