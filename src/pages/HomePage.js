@@ -24,7 +24,7 @@ const HomePage = () => {
           Get Started
         </Link>
       </header>
-
+      
       {/* ✅ Features Section */}
       <section id='features' className='features'>
         <div className='feature-box'>
