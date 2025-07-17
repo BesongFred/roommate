@@ -1,4 +1,4 @@
-/* === Reset + Full height setup === */
+/* === Reset + Global Styles === */
 body {
   margin: 0;
   padding: 0;
@@ -33,7 +33,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* === Preferences Bar (Centered) === */
+/* === Preferences Section === */
 .preferences {
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +44,6 @@ body {
   box-sizing: border-box;
 }
 
-/* === Input/select Elements (Larger Size) === */
 .option {
   min-width: 160px;
   max-width: 200px;
@@ -67,67 +66,129 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 button:hover {
   background-color: #09376e;
 }
 
-/* === Scrollbar Styling (Optional) === */
-.preferences::-webkit-scrollbar {
-  height: 6px;
-}
-.preferences::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-}
-
-/* === Result Listings: 6 per row === */
+/* === Listings Grid === */
 .results-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 50px;
-  padding: 30px 0;
-  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
 
-/* === Individual Result Card === */
+/* === Individual Listing Card === */
 .result-card {
-  background-color: #fefefe;
-  border: 1px solid #ddd;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+  padding-bottom: 15px;
 }
+
 .result-card:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* === Image inside card === */
 .result-card img {
   width: 100%;
-  height: 160px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
-.result-card:hover img {
-  transform: scale(1.05);
 }
 
-/* === Text inside card === */
-.result-card p {
-  margin: 4px 0;
-  text-align: center;
-  font-size: 0.9rem;
+/* === Name Text === */
+.name-label {
+  font-size: 1.1rem;
+  margin-top: 10px;
   color: #333;
 }
-.result-card p strong {
-  font-size: 1rem;
-  color: #0e4c92;
+
+/* === Connect Button === */
+.connect-btn {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.connect-btn:hover {
+  background-color: #005fa3;
+}
+
+/* === More Options Section === */
+.more-options {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.more-options-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.more-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.option-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.option-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.option-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* === Help & Support === */
+.support-link-bottom {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.center-support {
+  display: flex;
+  justify-content: center;
+}
+
+.action-card {
+  display: inline-block;
+  background-color: #ff4b2b;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.action-card:hover {
+  background-color: #e63e1f;
 }

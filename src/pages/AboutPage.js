@@ -14,7 +14,7 @@ const AboutPage = () => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
     <Header />
-   <Footer />
+   {/* <Footer /> */}
       {/* Hero Section */}
       <section
         className="bg-cover bg-center bg-no-repeat py-24 text-black"
@@ -119,6 +119,7 @@ const AboutPage = () => {
             </button>
           </Link>
         </div>
+        <Footer />
       </section>
     </div>
   );
