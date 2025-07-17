@@ -16,18 +16,19 @@ import dadImg from "../assets/dad.JPG";
 import home1Img from "../assets/home1.jpg";
 import home11Img from "../assets/home11.jpg";
 import love0Img from "../assets/love0.jpg";
+
 const mockListings = [
-  { id: 1, title: "Student Room", town: "Buea", location: "mile-17", image: dadImg },
-  { id: 2, title: "Beachside Room", town: "Limbe", location: "mile-4", image: home1Img },
-  { id: 3, title: "City Apartment", town: "Douala", location: "bonaberi", image: home11Img },
-  { id: 4, title: "Cozy Room", town: "Kumba", location: "fiango", image: love4Img },
-  { id: 5, title: "Single Studio", town: "Mutegene", location: "mutengene-junction", image: room5Img },
-  { id: 6, title: "Shared Flat", town: "Yaounde", location: "bastos", image: love7Img },
-  { id: 7, title: "Budget Room", town: "Betua", location: "center-town", image: love5Img },
-  { id: 8, title: "Compact Studio", town: "Mamfe", location: "mamfe-town", image: room6Img },
-  { id: 9, title: "Modern Room", town: "Tiko", location: "airport-road", image: love8Img },
-  { id: 10, title: "Quiet Space", town: "Muea", location: "checkpoint", image: love2Img },
-  { id: 11, title: "love you", town: "limbe", location: "mile 4", image: love0Img}, 
+  { id: 1, name: "Name...", title: "Student Room", town: "Buea", location: "mile-17", image: dadImg },
+  { id: 2, name: "Name...", title: "Beachside Room", town: "Limbe", location: "mile-4", image: home1Img },
+  { id: 3, name: "Name...", title: "City Apartment", town: "Douala", location: "bonaberi", image: home11Img },
+  { id: 4, name: "Name...", title: "Cozy Room", town: "Kumba", location: "fiango", image: love4Img },
+  { id: 5, name: "Name...", title: "Single Studio", town: "Mutegene", location: "mutengene-junction", image: room5Img },
+  { id: 6, name: "Name...", title: "Shared Flat", town: "Yaounde", location: "bastos", image: love7Img },
+  { id: 7, name: "Name...", title: "Budget Room", town: "Betua", location: "center-town", image: love5Img },
+  { id: 8, name: "Name...", title: "Compact Studio", town: "Mamfe", location: "mamfe-town", image: room6Img },
+  { id: 9, name: "Name...", title: "Modern Room", town: "Tiko", location: "airport-road", image: love8Img },
+  { id: 10, name: "Name...", title: "Quiet Space", town: "Muea", location: "checkpoint", image: love2Img },
+  { id: 11, name: "Name...", title: "Love You", town: "Limbe", location: "mile 4", image: love0Img },
 ];
 
 function SearchPage() {
@@ -140,10 +141,9 @@ function SearchPage() {
         <div className="results-container">
           {filteredListings.map((listing) => (
             <div key={listing.id} className="result-card">
-              <img src={listing.image} alt={listing.title} />
-              <p><strong>{listing.title}</strong></p>
-              <p>📍 {listing.town}</p>
-              <p>📌 {listing.location}</p>
+              <img src={listing.image} alt={listing.name} />
+              <p className="name-label"><strong>{listing.name}</strong></p>
+              <button className="connect-btn">Connect</button>
             </div>
           ))}
         </div>

@@ -14,7 +14,7 @@ function Header() {
             <Link to='#how'>How It Works</Link>
           </li>
           <li>
-            <Link to='/login'>Login</Link>
+            <Link to='/login'>profile</Link>
           </li>
         </ul>
       </nav>

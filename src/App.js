@@ -13,7 +13,7 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import ContactUs from './pages/ContactUs';
 import CompleteProfile from './pages/CompleteProfile';
 import ForgotPassword from './pages/ForgotPassword';
-import Dashboard from './pages/Dashboard';
+
 import Profile from './pages/Profile';
 import Messages from './pages/messages';
 import Searchpage  from './pages/SearchPage';
@@ -39,7 +39,6 @@ function App() {
       
          <Route path="/searchpage" element={<Searchpage />} />
          <Route path="/Messages" element={<Messages />} />
-         <Route path="/Dashboard" element={<Dashboard />} />
          <Route path="/AboutPage" element={<AboutPage />} />
          <Route path="/about-details" element={<AboutDetails />} />
          <Route path="/ListingsPage" element={<ListingsPage />} />
