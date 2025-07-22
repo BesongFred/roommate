@@ -1,29 +1,30 @@
 // src/components/Listing.jsx
 import React from 'react';
+import { Link } from "react-router-dom";
 import './ListingCard.css';
-import fred02 from '../assets/fred02.JPG'; 
-import fred01 from '../assets/fred01.JPG'; 
+import love2 from '../assets/love2.jpg'; 
+import love8 from '../assets/love8.jpg'; 
 const roommateListings = [
   {
     id: 1,
-    name: 'Sandra N.',
+    name: 'Robert.',
     location: 'Buea - Molyko',
     bio: 'Loves quiet evenings, plants, and baking. Looking for someone tidy.',
-    image: fred02, 
+    image: love2, 
   },
   {
     id: 2,
-    name: 'Eric T.',
+    name: 'AMPAM.',
     location: 'Yaoundé - Bastos',
     bio: 'Remote worker. Dog lover. Easy-going roommate.',
-    image: fred01,
+    image: love8,
   },
   {
     id: 3,
-    name: 'Linda A.',
+    name: 'FLURENT.',
     location: 'Douala - Bonapriso',
     bio: 'Enjoys shared meals and Netflix nights.',
-    image: process.env.PUBLIC_URL + '/images/linda.jpg',
+    image: love8,
   },
 ];
 
@@ -38,7 +39,7 @@ const Listing = () => {
             <h3>{name}</h3>
             <p className="location">{location}</p>
             <p className="bio">{bio}</p>
-            <button className="view-btn">View Profile</button>
+          <Link to={`/messages/`} className="message-btn">💬 Message</Link>
           </div>
         ))}
       </div>

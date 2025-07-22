@@ -15,7 +15,7 @@ import CompleteProfile from './pages/CompleteProfile';
 import ForgotPassword from './pages/ForgotPassword';
 
 import Profile from './pages/Profile';
-import Messages from './pages/messages';
+import Messages from './pages/Messages';
 import Searchpage  from './pages/SearchPage';
 
 // Example listings data (replace with your real data source)
@@ -38,7 +38,7 @@ function App() {
         />
       
          <Route path="/searchpage" element={<Searchpage />} />
-         <Route path="/Messages" element={<Messages />} />
+         <Route path="/messages" element={<Messages />} />
          <Route path="/AboutPage" element={<AboutPage />} />
          <Route path="/about-details" element={<AboutDetails />} />
          <Route path="/ListingsPage" element={<ListingsPage />} />
